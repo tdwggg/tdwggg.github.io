@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ivan Rejalde - Portfolio</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <style>
+    /* ARSENIC GRAY THEME */
+    body { 
+      background-color: #454545 !important; 
+      color: #f0f0f0 !important;
+      font-family: 'Arial', sans-serif;
+    }
+    
+    /* Override Bootstrap light backgrounds */
+    .bg-light {
+      background-color: #5a5a5a !important;
+    }
+    
+    /* Sections */
+    .section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #454545 0%, #5a5a5a 100%);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background-image: url('IVNbg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 120px 0;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    
+    /* Cards & Projects */
+    .project-card {
+      background: rgba(69, 69, 69, 0.9) !important;
+      border: none;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .project-card:hover {
+      transform: translateY(-15px);
+      background: rgba(90, 90, 90, 0.95) !important;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .card-body {
+      background: transparent !important;
+      color: #f0f0f0 !important;
+    }
+    
+    /* Skills */
+    .skill-item {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: rgba(69, 69, 69, 0.6);
+      border-radius: 15px;
+      transition: all 0.3s;
+    }
+    .skill-item:hover {
+      background: rgba(90, 90, 90, 0.9);
+      transform: translateY(-5px);
+    }
+    .skill-item i {
+      color: #00d4ff;
+    }
+    
+    /* Navbar */
+    .navbar {
+      background: rgba(69, 69, 69, 0.95) !important;
+      backdrop-filter: blur(10px);
+    }
+    .nav-link {
+      color: #f0f0f0 !important;
+    }
+    .nav-link:hover {
+      color: #00d4ff !important;
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #343a40, #454545);
+      color: white;
+      padding: 40px 0;
+    }
+    
+    /* Image fixes */
+    img {
+      border-radius: 15px;
+    }
+    
+    /* Headings */
+    h1, h2, h5 {
+      color: #ffffff !important;
+    }
+    
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(45deg, #00d4ff, #0099cc);
+      border: none;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(45deg, #0099cc, #00d4ff);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-3" href="#">Ivan Rejalde</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container text-center">
+      <img src="IVNgithub.jpg" alt="Ivan Rejalde" class="img-fluid mb-4" style="width: 180px; height: 180px; border: 4px solid rgba(255,255,255,0.3);">
+      <h1>Let's Play GTA!</h1>
+      <p class="lead mb-4">ITECH for the win</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 class="display-4 fw-bold mb-4">About Me</h2>
+          <p class="lead">Ivan Rejalde is a 19-year-old second-year student at the Polytechnic University of the Philippines – Sto. Tomas Campus, currently pursuing a Diploma in Information Technology.</p>
+          <p>He is actively developing his skills in web development and design, driven by a strong passion for fashion and personal style. While he aspires to build a career in the military, he also aims to establish himself as a proficient website designer and developer.</p>
+          <p>Outside of his academic interests, Ivan enjoys music—particularly percussion—and engages in sports such as badminton.</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="Collage.jpg" class="img-fluid" style="max-height: 500px; width: 100%; object-fit: cover;" alt="Ivan Rejalde">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="text-center display-4 fw-bold mb-5">Projects</h2>
+      <div class="row">
+        <div class="col-md-4 mb-5">
+          <div class="card project-card h-100">
+            <img src="GDEVpic.jpg" class="card-img-top" alt="Project 1">
+            <div class="card-body text-center">
+              <h5 class="card-title fs-3 fw-bold mb-3">Adventure Game</h5>
+              <p class="card-text">Run as fast as you can and get the TREASURES</p>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="card project-card h-100">
+            <img src="GIRRpic.jpg" class="card-img-top" alt="Project 2">
+            <div class="card-body text-center">
+              <h5 class="card-title fs-3 fw-bold mb-3">G.I.R.R.</h5>
+              <p class="card-text">Website specifically for booking a therapy session with your theprapist</p>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="card project-card h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title fs-3 fw-bold mb-3">PUP Event Manager System</h5>
+              <p class="card-text">Coming Soon</p>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="text-center display-4 fw-bold mb-5">Contact Me</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="mb-4">Get in touch</h3>
+          <p class="lead mb-4">Want to know more about me or my builds? Come send me a message.</p>
+          <ul class="list-unstyled fs-5">
+            <li class="mb-3"><i class="fas fa-envelope me-3"></i> ivanrejalde@gmail.com</li>
+            <li class="mb-3"><i class="fas fa-phone me-3"></i> @lgndrydwg</li>
+          </ul>
+        </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p class="mb-3 fs-5"> sana makagraduate ako mga lodz</p>
+      <div>
+        <a href="#" class="text-white me-4 fs-2"><i class="fab fa-github"></i></a>
+        <a href="#" class="text-white me-4 fs-2"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="text-white fs-2"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
