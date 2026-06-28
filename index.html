@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ivan Rejalde - Portfolio</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-  <style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivan Rejalde - Portfolio</title>
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous">
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"></script>
+    <style>
     /* ARSENIC GRAY THEME */
     body { 
       background-color: #454545 !important; 
@@ -28,14 +37,16 @@
     
     /* Hero Section */
     .hero {
-      background-image: url('IVNbg.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: white;
-      padding: 120px 0;
-      position: relative;
-    }
+  background-image: url('Gemini.png');
+  background-size: cover;
+  background-position: center 60%; /* show more of image */
+  background-attachment: fixed;
+  color: white;
+  height: 90vh; /* FULL SCREEN */
+  display: flex;
+  align-items: center; /* center vertically */
+  position: relative;
+}
     .hero::before {
       content: '';
       position: absolute;
@@ -129,118 +140,154 @@
       transform: translateY(-2px);
     }
   </style>
-</head>
+  </head>
 
-<body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold fs-3" href="#">Ivan Rejalde</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container text-center">
-      <img src="IVNgithub.jpg" alt="Ivan Rejalde" class="img-fluid mb-4" style="width: 180px; height: 180px; border: 4px solid rgba(255,255,255,0.3);">
-      <h1>Let's Play GTA!</h1>
-      <p class="lead mb-4">ITECH for the win</p>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <h2 class="display-4 fw-bold mb-4">About Me</h2>
-          <p class="lead">Ivan Rejalde is a 19-year-old second-year student at the Polytechnic University of the Philippines – Sto. Tomas Campus, currently pursuing a Diploma in Information Technology.</p>
-          <p>He is actively developing his skills in web development and design, driven by a strong passion for fashion and personal style. While he aspires to build a career in the military, he also aims to establish himself as a proficient website designer and developer.</p>
-          <p>Outside of his academic interests, Ivan enjoys music—particularly percussion—and engages in sports such as badminton.</p>
-        </div>
-        <div class="col-md-6 text-center">
-          <img src="Collage.jpg" class="img-fluid" style="max-height: 500px; width: 100%; object-fit: cover;" alt="Ivan Rejalde">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="text-center display-4 fw-bold mb-5">Projects</h2>
-      <div class="row">
-        <div class="col-md-4 mb-5">
-          <div class="card project-card h-100">
-            <img src="GDEVpic.jpg" class="card-img-top" alt="Project 1">
-            <div class="card-body text-center">
-              <h5 class="card-title fs-3 fw-bold mb-3">Adventure Game</h5>
-              <p class="card-text">Run as fast as you can and get the TREASURES</p>
-             
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-5">
-          <div class="card project-card h-100">
-            <img src="GIRRpic.jpg" class="card-img-top" alt="Project 2">
-            <div class="card-body text-center">
-              <h5 class="card-title fs-3 fw-bold mb-3">G.I.R.R.</h5>
-              <p class="card-text">Website specifically for booking a therapy session with your theprapist</p>
-             
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-5">
-          <div class="card project-card h-100">
-            <div class="card-body text-center">
-              <h5 class="card-title fs-3 fw-bold mb-3">PUP Event Manager System</h5>
-              <p class="card-text">Coming Soon</p>
-            
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="text-center display-4 fw-bold mb-5">Contact Me</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <h3 class="mb-4">Get in touch</h3>
-          <p class="lead mb-4">Want to know more about me or my builds? Come send me a message.</p>
-          <ul class="list-unstyled fs-5">
-            <li class="mb-3"><i class="fas fa-envelope me-3"></i> ivanrejalde@gmail.com</li>
-            <li class="mb-3"><i class="fas fa-phone me-3"></i> @lgndrydwg</li>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="#">Ivan Rejalde</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link px-3"
+                href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link px-3"
+                href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link px-3"
+                href="#contact">Contact</a></li>
           </ul>
         </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container text-center">
-      <p class="mb-3 fs-5"> sana makagraduate ako mga lodz</p>
-      <div>
-        <a href="#" class="text-white me-4 fs-2"><i class="fab fa-github"></i></a>
-        <a href="#" class="text-white me-4 fs-2"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="text-white fs-2"><i class="fab fa-twitter"></i></a>
       </div>
-    </div>
-  </footer>
+    </nav>
 
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</body>
-</html>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container text-center">
+
+        <h1 style="text-align: right;">Let's Play GTA!</h1>
+        <p class="lead mb-4" style="text-align: right;">ITECH for the win</p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h2 class="display-4 fw-bold mb-4">About Me</h2>
+            <p class="lead">Ivan Rejalde is a 19-year-old second-year student at
+              the Polytechnic University of the Philippines – Sto. Tomas Campus,
+              currently pursuing a Diploma in Information Technology.</p>
+            <p>He is actively developing his skills in web development and
+              design, driven by a strong passion for fashion and personal style.
+              While he aspires to build a career in the military, he also aims
+              to establish himself as a proficient website designer and
+              developer.</p>
+            <p>Outside of his academic interests, Ivan enjoys music—particularly
+              percussion—and engages in sports such as badminton.</p>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="Collage.jpg" class="img-fluid"
+              style="max-height: 500px; width: 100%; object-fit: cover;"
+              alt="Ivan Rejalde">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="text-center display-4 fw-bold mb-5">Projects</h2>
+        <div class="row">
+          <div class="col-md-4 mb-5">
+            <div class="card project-card h-100">
+              <img src="GDEVpic.jpg" class="card-img-top" alt="Project 1">
+              <div class="card-body text-center">
+                <h5 class="card-title fs-3 fw-bold mb-3">Adventure Game</h5>
+                <p class="card-text">Run as fast as you can and get the
+                  TREASURES</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5">
+            <div class="card project-card h-100">
+              <img src="GIRRpic.jpg" class="card-img-top" alt="Project 2">
+              <div class="card-body text-center">
+                <h5 class="card-title fs-3 fw-bold mb-3">G.I.R.R.</h5>
+                <p class="card-text">Website specifically for booking a therapy
+                  session with your theprapist</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5">
+            <div class="card project-card h-100">
+              <img src="Event.png" class="card-img-top" alt="Project 3">
+              <div class="card-body text-center">
+                <h5 class="card-title fs-3 fw-bold mb-3">Plan Campus Event
+                  Smarter
+                  System</h5>
+                <p class="card-text">Tired of messaging everybody everytime you
+                  drop an event? Try our site.</p>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-5">
+            <div class="card project-card h-100">
+              <img src="Voting.jpg" class="card-img-top" alt="Project 4">
+              <div class="card-body text-center">
+                <h5 class="card-title fs-3 fw-bold mb-3">iVotePH
+                  System</h5>
+                <p class="card-text">Much Convenient way of voting.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+          <div class="container">
+            <h2 class="text-center display-4 fw-bold mb-5">Contact Me</h2>
+            <div class="row">
+              <div class="col-md-6">
+                <h3 class="mb-4">Get in touch</h3>
+                <p class="lead mb-4">Want to know more about me or my builds?
+                  Come
+                  send me a message.</p>
+                <ul class="list-unstyled fs-5">
+                  <li class="mb-3"><i class="fas fa-envelope me-3"></i>
+                    ivanrejalde@gmail.com</li>
+                  <li class="mb-3"><i class="fas fa-phone me-3"></i>
+                    @lgndrydwg</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+              <div class="container text-center">
+                <p class="mb-3 fs-5"> sana makagraduate ako mga lodz</p>
+                <div>
+                  <a href="#" class="text-white me-4 fs-2"><i
+                      class="fab fa-github"></i></a>
+                  <a href="#" class="text-white me-4 fs-2"><i
+                      class="fab fa-linkedin"></i></a>
+                  <a href="#" class="text-white fs-2"><i
+                      class="fab fa-twitter"></i></a>
+                </div>
+              </div>
+            </footer>
+
+            <!-- Font Awesome -->
+            <script src="https://kit.fontawesome.com/a076d05399.js"
+              crossorigin="anonymous"></script>
+          </body>
+        </html>
