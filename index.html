@@ -16,6 +16,9 @@
       src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
       integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
       crossorigin="anonymous"></script>
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"></script>
     <style>
     /* ARSENIC GRAY THEME */
     body { 
@@ -165,19 +168,18 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-      <div class="container text-center">
-
-        <h1 style="text-align: right;">Let's Play GTA!</h1>
+    <section class="hero" style="padding-top: 80px;">
+      <div class="container text-center" style="padding: 40px 20px;">
+        <h1 style="text-align: right; margin-bottom: 20px;">Let's Play GTA!</h1>
         <p class="lead mb-4" style="text-align: right;">ITECH for the win</p>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
+    <section id="about" class="section" style="padding: 100px 0;">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-6">
+          <div class="col-md-6" style="padding-right: 30px;">
             <h2 class="display-4 fw-bold mb-4">About Me</h2>
             <p class="lead">Ivan Rejalde is a 19-year-old second-year student at
               the Polytechnic University of the Philippines – Sto. Tomas Campus,
@@ -189,10 +191,25 @@
               developer.</p>
             <p>Outside of his academic interests, Ivan enjoys music—particularly
               percussion—and engages in sports such as badminton.</p>
+            <h5 class="mt-5 mb-3">💻 Tech Stack:</h5>
+            <div class="d-flex flex-wrap gap-3" style="row-gap: 15px;">
+              <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=flat&logo=openjdk&logoColor=white" alt="Java">
+              <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
+              <img src="https://img.shields.io/badge/php-%23777BB4.svg?style=flat&logo=php&logoColor=white" alt="PHP">
+              <img src="https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54" alt="Python">
+              <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white" alt="HTML5">
+              <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=flat&logo=css3&logoColor=white" alt="CSS3">
+              <img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=flat&logo=sqlite&logoColor=white" alt="SQLite">
+              <img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=flat&logo=figma&logoColor=white" alt="Figma">
+              <img src="https://img.shields.io/badge/github-%23121011.svg?style=flat&logo=github&logoColor=white" alt="GitHub">
+              <img src="https://img.shields.io/badge/cisco-%23049fd9.svg?style=flat&logo=cisco&logoColor=black" alt="Cisco">
+              <img src="https://img.shields.io/badge/power_bi-F2C811?style=flat&logo=powerbi&logoColor=black" alt="Power BI">
+              <img src="https://img.shields.io/badge/steam-%23000000.svg?style=flat&logo=steam&logoColor=white" alt="Steam">
+            </div>
           </div>
-          <div class="col-md-6 text-center">
+          <div class="col-md-6 text-center" style="padding-left: 30px;">
             <img src="Collage.jpg" class="img-fluid"
-              style="max-height: 500px; width: 100%; object-fit: cover;"
+              style="max-height: 500px; width: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"
               alt="Ivan Rejalde">
           </div>
         </div>
@@ -200,10 +217,10 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
+    <section id="projects" class="section" style="padding: 100px 0;">
       <div class="container">
         <h2 class="text-center display-4 fw-bold mb-5">Projects</h2>
-        <div class="row">
+        <div class="row" style="row-gap: 30px;">
           <div class="col-md-4 mb-5">
             <div class="card project-card h-100">
               <img src="GDEVpic.jpg" class="card-img-top" alt="Project 1">
@@ -250,44 +267,43 @@
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-          <div class="container">
-            <h2 class="text-center display-4 fw-bold mb-5">Contact Me</h2>
-            <div class="row">
-              <div class="col-md-6">
-                <h3 class="mb-4">Get in touch</h3>
-                <p class="lead mb-4">Want to know more about me or my builds?
-                  Come
-                  send me a message.</p>
-                <ul class="list-unstyled fs-5">
-                  <li class="mb-3"><i class="fas fa-envelope me-3"></i>
-                    ivanrejalde@gmail.com</li>
-                  <li class="mb-3"><i class="fas fa-phone me-3"></i>
-                    @lgndrydwg</li>
-                </ul>
-              </div>
-            </section>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container" style="padding: 40px 0;">
+        <h2 class="text-center display-4 fw-bold mb-5">Contact Me</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-6" style="background: rgba(90, 90, 90, 0.5); padding: 40px; border-radius: 15px;">
+            <h3 class="mb-4">Get in touch</h3>
+            <p class="lead mb-4">Want to know more about me or my builds?
+              Come send me a message.</p>
+            <ul class="list-unstyled fs-5">
+              <li class="mb-3"><i class="fas fa-envelope me-3"></i>
+                ivanrejalde@gmail.com</li>
+              <li class="mb-3"><i class="fas fa-phone me-3"></i>
+                @lgndrydwg</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <!-- Footer -->
-            <footer>
-              <div class="container text-center">
-                <p class="mb-3 fs-5"> sana makagraduate ako mga lodz</p>
-                <div>
-                  <a href="#" class="text-white me-4 fs-2"><i
-                      class="fab fa-github"></i></a>
-                  <a href="#" class="text-white me-4 fs-2"><i
-                      class="fab fa-linkedin"></i></a>
-                  <a href="#" class="text-white fs-2"><i
-                      class="fab fa-twitter"></i></a>
-                </div>
-              </div>
-            </footer>
-
-            <!-- Font Awesome -->
-            <script src="https://kit.fontawesome.com/a076d05399.js"
-              crossorigin="anonymous"></script>
-          </body>
-        </html>
+    <!-- Footer -->
+    <footer style="padding: 60px 0; margin-top: 60px;">
+      <div class="container text-center">
+        <p class="mb-4 fs-5" style="font-style: italic;"> sana makagraduate ako mga lodz</p>
+        <div style="display: flex; justify-content: center; gap: 30px;">
+          <a href="#" class="text-white" style="font-size: 2rem;"><i
+              class="fab fa-github"></i></a>
+          <a href="#" class="text-white" style="font-size: 2rem;"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-white" style="font-size: 2rem;"><i
+              class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
