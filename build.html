@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Builds | Ivan M. Rejalde</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            transition: 0.5s ease;
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #2e2e2e;
+            --panel: #454545;
+            --panel-raised: #5a5a5a;
+            --ink: #f0f0f0;
+            --muted: #b8b8b8;
+            --accent: #00d4ff;
+            --accent-dim: #0099cc;
+            --edge: #1a1a1a;
+            --hard-shadow: 6px 6px 0 #1a1a1a;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(ellipse 50% 40% at 8% 20%, rgba(0, 212, 255, 0.12), transparent 55%),
+                radial-gradient(ellipse 45% 35% at 92% 78%, rgba(0, 153, 204, 0.1), transparent 50%),
+                var(--bg);
+            color: var(--ink);
+            font-family: "IBM Plex Sans", sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "IBM Plex Sans", sans-serif;
+            color: #fff;
+            letter-spacing: 0;
+            font-weight: 600;
+        }
+
+        .page-shell {
+            height: 100vh;
+            max-height: 100vh;
+            padding: 1rem;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .main-card {
+            background: var(--panel);
+            border: 2px solid var(--edge);
+            border-radius: 18px 2px 18px 2px;
+            box-shadow: var(--hard-shadow);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .desktop-nav-wrapper {
+            display: block;
+        }
+
+        .mobile-nav-wrapper {
+            display: none;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.85rem 1.25rem;
+            border-bottom: 2px solid var(--edge);
+            background: var(--panel-raised);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 30;
+        }
+
+        .nav-tab {
+            appearance: none;
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.4rem 0.85rem;
+            cursor: pointer;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .nav-tab:hover {
+            color: var(--ink);
+        }
+
+        .nav-tab.active {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .nav-tab.active::after {
+            content: "";
+            position: absolute;
+            left: 0.85rem;
+            right: 0.85rem;
+            bottom: 0.15rem;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .social-drop {
+            position: relative;
+        }
+
+        .social-drop-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .social-drop-toggle .caret {
+            font-size: 0.65rem;
+            transition: transform 0.2s ease;
+        }
+
+        .social-drop-toggle[aria-expanded="true"] {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .social-drop-toggle[aria-expanded="true"] .caret {
+            transform: rotate(180deg);
+        }
+
+        .social-drop-menu {
+            position: absolute;
+            top: calc(100% + 0.55rem);
+            right: 0;
+            display: flex;
+            gap: 0.55rem;
+            padding: 0.65rem 0.85rem;
+            background: var(--panel);
+            border: 2px solid var(--edge);
+            box-shadow: 4px 4px 0 var(--edge);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(-6px);
+            z-index: 40;
+        }
+
+        .social-drop-menu::before {
+            content: "";
+            position: absolute;
+            right: 1.4rem;
+            top: -6px;
+            width: 10px;
+            height: 10px;
+            background: var(--panel);
+            border-left: 2px solid var(--edge);
+            border-top: 2px solid var(--edge);
+            transform: rotate(45deg);
+        }
+
+        .social-drop.open .social-drop-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .social-drop-menu a {
+            width: 2.35rem;
+            height: 2.35rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.15rem;
+            border: 2px solid var(--edge);
+            background: var(--panel-raised);
+            text-decoration: none;
+        }
+
+        .social-drop-menu a:hover {
+            color: var(--edge);
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .content-area {
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .panel-section {
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 1.15rem 1.35rem 1.25rem;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .panel-section::-webkit-scrollbar {
+            display: none;
+        }
+
+        .builds-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .neumorphic {
+            background-color: #454545;
+            box-shadow: -10px 10px 10px 0px rgba(0, 0, 0, 0.5), 10px -10px 10px 0px rgba(255, 255, 255, 0.15);
+        }
+
+        .buildCard {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px;
+            border: none;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .buildCard:hover {
+            transform: translate(-2px, -2px);
+        }
+
+        .buildImageWrapper {
+            height: 200px;
+            width: 100%;
+            border-bottom: 2px solid var(--edge);
+            overflow: hidden;
+        }
+
+        .buildImageWrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .buildCard .card-body {
+            padding: 1rem;
+            background: transparent;
+            flex: 1;
+        }
+
+        .build-party {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+        }
+
+        .build-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+        }
+
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        }
+
+        .image-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .image-modal img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 992px) {
+            .builds-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .page-shell {
+                padding: 0;
+            }
+
+            .main-card {
+                border-radius: 0;
+                border: none;
+            }
+
+            .desktop-nav-wrapper {
+                display: none !important;
+            }
+
+            .mobile-nav-wrapper {
+                display: block !important;
+            }
+
+            .mobile-nav-wrapper .top-nav {
+                border-top: 2px solid var(--edge);
+                border-bottom: none;
+                padding: 0.75rem 1rem;
+            }
+
+            .mobile-nav-wrapper .social-drop-menu {
+                top: auto;
+                bottom: calc(100% + 0.55rem);
+                transform: translateY(6px);
+            }
+
+            .mobile-nav-wrapper .social-drop-menu::before {
+                top: auto;
+                bottom: -6px;
+                border-left: none;
+                border-top: none;
+                border-right: 2px solid var(--edge);
+                border-bottom: 2px solid var(--edge);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .builds-grid {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1rem;
+            }
+
+            .nav-tab {
+                padding: 0.35rem 0.55rem;
+                font-size: 0.85rem;
+            }
+
+            .panel-section {
+                padding: 1rem 0 6rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-shell">
+        <div class="main-card">
+
+            <div class="desktop-nav-wrapper">
+                <nav class="top-nav" aria-label="Primary Desktop">
+                    <button type="button" class="nav-tab" onclick="window.location.href='index.html'">About</button>
+                    <button type="button" class="nav-tab active">Builds</button>
+                    <div class="social-drop">
+                        <button type="button" class="nav-tab social-drop-toggle" aria-expanded="false"
+                            aria-controls="socialDropMenu" aria-haspopup="true">
+
+                        </button>
+                        <div class="social-drop-menu" role="menu">
+                            <a href="https://github.com/tdwggg" target="_blank" rel="noopener noreferrer"
+                                aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="mailto:ivanrejalde@gmail.com" aria-label="Email"><i
+                                    class="fas fa-envelope"></i></a>
+                            <a href="https://www.linkedin.com/in/ivanr-linked-in" aria-label="LinkedIn"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="content-area">
+                <section class="panel-section">
+                    <div class="px-3">
+
+                        <div class="mb-4">
+                            <h2 class="fw-bold text-white mb-1">Interested in some of my builds?</h2>
+                            <p class="text-white m-0">Hit me up and Let's Talk.</p>
+                        </div>
+
+                        <div class="builds-grid">
+
+                            <div class="buildCard neumorphic">
+                                <div class="buildImageWrapper">
+                                    <img class="project-thumb" src="GDEVpic.jpg" alt="Adventure Game screenshot">
+                                </div>
+                                <div class="card-body">
+                                    <span class="build-party">First Year Game Development Project</span>
+                                    <h4 class="build-name">Adventure Game</h4>
+                                </div>
+                            </div>
+
+                            <div class="buildCard neumorphic">
+                                <div class="buildImageWrapper">
+                                    <img class="project-thumb" src="Talakayin.png" alt="Talakayin screenshot">
+                                </div>
+                                <div class="card-body">
+                                    <span class="build-party">API Project</span>
+                                    <h4 class="build-name">Talakayin</h4>
+                                </div>
+                            </div>
+
+                            <div class="buildCard neumorphic">
+                                <div class="buildImageWrapper">
+                                    <img class="project-thumb" src="Light.png" alt="Light screenshot">
+                                </div>
+                                <div class="card-body">
+                                    <span class="build-party">Showcase Project</span>
+                                    <h4 class="build-name">Light</h4>
+                                </div>
+                            </div>
+
+                            <div class="buildCard neumorphic">
+                                <div class="buildImageWrapper">
+                                    <img class="project-thumb" src="GIRRpic.jpg" alt="GIRR screenshot">
+                                </div>
+                                <div class="card-body">
+                                    <span class="build-party">Therapists Website</span>
+                                    <h4 class="build-name">G.I.R.R.</h4>
+                                </div>
+                            </div>
+
+                            <div class="buildCard neumorphic">
+                                <div class="buildImageWrapper">
+                                    <img class="project-thumb" src="Class-Activity.png" alt="Class Activity screenshot">
+                                </div>
+                                <div class="card-body">
+                                    <span class="build-party">Postgres DB Project</span>
+                                    <h4 class="build-name">Class Activity</h4>
+                                </div>
+                            </div>
+
+                            <div class="buildCard neumorphic">
+                                <div class="buildImageWrapper">
+                                    <img class="project-thumb" src="Event.png" alt="Smart Campus screenshot">
+                                </div>
+                                <div class="card-body">
+                                    <span class="build-party">PUP Event Management System</span>
+                                    <h4 class="build-name">Smart Campus</h4>
+                                </div>
+                            </div>
+
+                            <div class="buildCard neumorphic">
+                                <div class="buildImageWrapper">
+                                    <img class="project-thumb" src="Voting.jpg" alt="iVOTE PH screenshot">
+                                </div>
+                                <div class="card-body">
+                                    <span class="build-party">Online Voting System</span>
+                                    <h4 class="build-name">iVOTE PH</h4>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="mobile-nav-wrapper">
+                <nav class="top-nav justify-content-around" aria-label="Primary Mobile">
+                    <button type="button" class="nav-tab" onclick="window.location.href='index.html'">About</button>
+                    <button type="button" class="nav-tab active">Builds</button>
+                    <div class="social-drop">
+                        <button type="button" class="nav-tab social-drop-toggle" aria-expanded="false"
+                            aria-controls="socialDropMenu" aria-haspopup="true">
+                            Connect
+                            <span class="caret" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="social-drop-menu" role="menu">
+                            <a href="https://github.com/tdwggg" target="_blank" rel="noopener noreferrer"
+                                aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="mailto:ivanrejalde@gmail.com" aria-label="Email"><i
+                                    class="fas fa-envelope"></i></a>
+                            <a href="https://www.linkedin.com/in/ivanr-linked-in" aria-label="LinkedIn"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="image-modal" id="imageModal" aria-hidden="true">
+        <span class="modal-close" id="modalClose" aria-label="Close preview">&times;</span>
+        <img id="modalImage" src="" alt="Project preview">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

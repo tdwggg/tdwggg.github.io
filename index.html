@@ -5,14 +5,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ivan M. Rejalde | Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
+    * {
+      transition: 0.5s ease;
+      box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     :root {
       --bg: #2e2e2e;
       --panel: #454545;
@@ -23,12 +33,6 @@
       --accent-dim: #0099cc;
       --edge: #1a1a1a;
       --hard-shadow: 6px 6px 0 #1a1a1a;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
     }
 
     html,
@@ -78,6 +82,15 @@
       height: 100%;
       min-height: 0;
       overflow: hidden;
+    }
+
+    /* Nav Wrappers */
+    .desktop-nav-wrapper {
+      display: block;
+    }
+
+    .mobile-nav-wrapper {
+      display: none;
     }
 
     .top-nav {
@@ -224,20 +237,12 @@
       overflow-y: auto;
       overflow-x: hidden;
       padding: 1.15rem 1.35rem 1.25rem;
-      scrollbar-width: thin;
-      scrollbar-color: var(--accent-dim) var(--panel-raised);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
     .panel-section::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .panel-section::-webkit-scrollbar-track {
-      background: var(--panel-raised);
-    }
-
-    .panel-section::-webkit-scrollbar-thumb {
-      background: var(--accent-dim);
+      display: none;
     }
 
     .panel-section.active {
@@ -417,98 +422,6 @@
       border-radius: 0;
     }
 
-    .edu-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .edu-item {
-      background: var(--panel-raised);
-      border-left: 4px solid var(--accent);
-      border-top: 2px solid var(--edge);
-      border-right: 2px solid var(--edge);
-      border-bottom: 2px solid var(--edge);
-      border-radius: 0 8px 0 0;
-      padding: 1.15rem 1.25rem;
-      box-shadow: 3px 3px 0 var(--edge);
-    }
-
-    .edu-item h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .edu-meta {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-
-    .edu-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.55;
-    }
-
-    .builds-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 2rem;
-      align-items: stretch;
-    }
-
-    .project-card {
-      background: var(--panel-raised);
-      border: 2px solid var(--edge);
-      border-radius: 12px;
-      box-shadow: 3px 3px 0 var(--edge);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .project-card:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 5px 5px 0 var(--accent-dim);
-    }
-
-    .project-thumb {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      object-position: center;
-      background: #2e2e2e;
-      display: block;
-      border-bottom: 2px solid var(--edge);
-      border-radius: 10px 10px 0 0;
-      cursor: pointer;
-    }
-
-    .project-body {
-      padding: 0.85rem 1rem 1rem;
-      flex: 1;
-    }
-
-    .project-body h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    .project-body p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
     .image-modal {
       display: none;
       position: fixed;
@@ -553,33 +466,19 @@
       color: var(--accent);
     }
 
+    /* para maangas */
     @media (max-width: 900px) {
-
-      html,
-      body {
-        overflow: auto;
-        height: auto;
-      }
-
       .page-shell {
-        height: auto;
-        max-height: none;
-        min-height: 100vh;
-        overflow: visible;
-        padding: 1rem;
+        padding: 0;
       }
 
       .main-card {
-        min-height: 85vh;
-        height: auto;
-      }
-
-      .content-area {
-        min-height: 55vh;
+        border-radius: 0;
+        border: none;
       }
 
       .panel-section {
-        max-height: 70vh;
+        padding: 1.15rem 1rem 6rem 1rem;
       }
 
       .about-split {
@@ -589,7 +488,7 @@
       .profile-column {
         order: 1;
         margin-top: 0;
-        max-width: 340px;
+        max-width: 100%;
         width: 100%;
         margin-left: auto;
         margin-right: auto;
@@ -603,13 +502,37 @@
         grid-template-columns: 1fr;
       }
 
-      .builds-grid {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      .desktop-nav-wrapper {
+        display: none !important;
       }
 
-      .top-nav {
-        justify-content: center;
-        flex-wrap: wrap;
+      .mobile-nav-wrapper {
+        display: block !important;
+      }
+
+      .mobile-nav-wrapper .top-nav {
+        border-top: 2px solid var(--edge);
+        border-bottom: none;
+        padding: 0.75rem 1rem;
+      }
+
+      .mobile-nav-wrapper .social-drop-menu {
+        top: auto;
+        bottom: calc(100% + 0.55rem);
+        transform: translateY(6px);
+      }
+
+      .mobile-nav-wrapper .social-drop-menu::before {
+        top: auto;
+        bottom: -6px;
+        border-left: none;
+        border-top: none;
+        border-right: 2px solid var(--edge);
+        border-bottom: 2px solid var(--edge);
+      }
+
+      .mobile-nav-wrapper .social-drop.open .social-drop-menu {
+        transform: translateY(0);
       }
     }
 
@@ -632,25 +555,26 @@
   <div class="page-shell">
     <div class="main-card">
 
-      <nav class="top-nav" aria-label="Primary">
-        <button type="button" class="nav-tab active" data-target="about">About</button>
-        <button type="button" class="nav-tab" data-target="builds">Builds</button>
-        <div class="social-drop" id="socialDrop">
-          <button type="button" class="nav-tab social-drop-toggle" id="socialDropToggle" aria-expanded="false"
-            aria-controls="socialDropMenu" aria-haspopup="true">
-            Connect
-            <span class="caret" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
-          </button>
-          <div class="social-drop-menu" id="socialDropMenu" role="menu">
-            <a href="https://github.com/tdwggg" target="_blank" rel="noopener noreferrer" role="menuitem"
-              aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="mailto:ivanrejalde@gmail.com" role="menuitem" aria-label="Email"><i
-                class="fas fa-envelope"></i></a>
-            <a href="www.linkedin.com/in/ivanr-linked-in" role="menuitem" aria-label="LinkedIn"><i
-                class="fab fa-linkedin"></i></a>
+      <!-- pc nav -->
+      <div class="desktop-nav-wrapper">
+        <nav class="top-nav" aria-label="Primary Desktop">
+          <button type="button" class="nav-tab active">About</button>
+          <button type="button" class="nav-tab" onclick="window.location.href='build.html'">Builds</button>
+          <div class="social-drop">
+            <button type="button" class="nav-tab social-drop-toggle" aria-expanded="false"
+              aria-controls="socialDropMenu" aria-haspopup="true">
+            </button>
+            <div class="social-drop-menu" role="menu">
+              <a href="https://github.com/tdwggg" target="_blank" rel="noopener noreferrer" role="menuitem"
+                aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="mailto:ivanrejalde@gmail.com" role="menuitem" aria-label="Email"><i
+                  class="fas fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/ivanr-linked-in" role="menuitem" aria-label="LinkedIn"><i
+                  class="fab fa-linkedin"></i></a>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
       <div class="content-area">
 
@@ -712,8 +636,10 @@
                 </div>
 
                 <div class="contact-block">
-                  <span class="contact-label">Senior High School</span>
-                  <span class="contact-value">St. John Academy of Visual and Performing Arts</span>
+                  <span class="contact-label">Contacts</span>
+                  <span class="contact-value">LinkedIn: <a
+                      href="https://www.linkedin.com/in/ivanr-linked-in?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                      target="_blank" rel="noopener noreferrer">Ivan Rejalde</a></span>
                 </div>
               </aside>
 
@@ -756,73 +682,31 @@
             </div>
           </div>
         </section>
-
-
-        <section id="builds" class="panel-section" aria-labelledby="builds-heading">
-          <h2 id="builds-heading" class="section-title">Builds</h2>
-          <p class="lead-text" style="margin-bottom: 0.9rem;">
-            For more Information about my projects, please email me.
-          </p>
-
-          <div class="builds-grid">
-            <article class="project-card">
-              <img class="project-thumb" src="GDEVpic.jpg" alt="Adventure Game screenshot">
-              <div class="project-body">
-                <h3>Adventure Game</h3>
-                <p>Run as fast as you can and get the treasures.</p>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img class="project-thumb" src="GIRRpic.jpg" alt="G.I.R.R. website screenshot">
-              <div class="project-body">
-                <h3>G.I.R.R.</h3>
-                <p>Website for booking therapy sessions with your therapist.</p>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img class="project-thumb" src="Event.png" alt="Campus event planner screenshot">
-              <div class="project-body">
-                <h3>Plan Campus Event Smarter</h3>
-                <p>Drop campus events without messaging everyone every time.</p>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img class="project-thumb" src="Voting.jpg" alt="iVotePH system screenshot">
-              <div class="project-body">
-                <h3>iVotePH</h3>
-                <p>A more convenient way to handle voting workflows.</p>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img class="project-thumb" src="Class-Activity.png" alt="Class Activity website screenshot">
-              <div class="project-body">
-                <h3>Class Activity</h3>
-                <p>Class activity site for tracking and organizing coursework tasks.</p>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img class="project-thumb" src="Light.png" alt="Light website screenshot">
-              <div class="project-body">
-                <h3>Light</h3>
-                <p>Web build focused on a clean, light interface experience.</p>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img class="project-thumb" src="Talakayin.png" alt="Talakayin website screenshot">
-              <div class="project-body">
-                <h3>Talakayin</h3>
-                <p>Discussion-focused website for sharing and talking through ideas.</p>
-              </div>
-            </article>
-          </div>
-        </section>
       </div>
+
+      <!-- phone nav -->
+      <div class="mobile-nav-wrapper">
+        <nav class="top-nav justify-content-around" aria-label="Primary Mobile">
+          <button type="button" class="nav-tab active">About</button>
+          <button type="button" class="nav-tab" onclick="window.location.href='build.html'">Builds</button>
+          <div class="social-drop">
+            <button type="button" class="nav-tab social-drop-toggle" aria-expanded="false"
+              aria-controls="socialDropMenu" aria-haspopup="true">
+              Connect
+              <span class="caret" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <div class="social-drop-menu" role="menu">
+              <a href="https://github.com/tdwggg" target="_blank" rel="noopener noreferrer" role="menuitem"
+                aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="mailto:ivanrejalde@gmail.com" role="menuitem" aria-label="Email"><i
+                  class="fas fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/ivanr-linked-in" role="menuitem" aria-label="LinkedIn"><i
+                  class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </nav>
+      </div>
+
     </div>
   </div>
 
@@ -831,95 +715,8 @@
     <img id="modalImage" src="" alt="Project preview">
   </div>
 
-  <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
-    crossorigin="anonymous"></script>
-  <script>
-    (function () {
-      const tabs = document.querySelectorAll(".nav-tab[data-target]");
-      const sections = document.querySelectorAll(".panel-section");
-      const socialDrop = document.getElementById("socialDrop");
-      const socialToggle = document.getElementById("socialDropToggle");
+  <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-      const imageModal = document.getElementById("imageModal");
-      const modalImg = document.getElementById("modalImage");
-      const modalClose = document.getElementById("modalClose");
-      const projectThumbs = document.querySelectorAll(".project-thumb");
-
-      function showSection(id) {
-        tabs.forEach(function (tab) {
-          tab.classList.toggle("active", tab.getAttribute("data-target") === id);
-        });
-        sections.forEach(function (section) {
-          const isActive = section.id === id;
-          section.classList.toggle("active", isActive);
-          if (isActive) {
-            section.scrollTop = 0;
-          }
-        });
-        setSocialOpen(false);
-      }
-
-      tabs.forEach(function (tab) {
-        tab.addEventListener("click", function () {
-          showSection(tab.getAttribute("data-target"));
-        });
-      });
-
-      function setSocialOpen(open) {
-        socialDrop.classList.toggle("open", open);
-        socialToggle.setAttribute("aria-expanded", open ? "true" : "false");
-      }
-
-      socialToggle.addEventListener("click", function (e) {
-        e.stopPropagation();
-        setSocialOpen(!socialDrop.classList.contains("open"));
-      });
-
-      function openModal(src) {
-        modalImg.src = src;
-        imageModal.classList.add("show");
-        imageModal.setAttribute("aria-hidden", "false");
-      }
-
-      function closeModal() {
-        imageModal.classList.remove("show");
-        imageModal.setAttribute("aria-hidden", "true");
-        setTimeout(function () {
-          if (!imageModal.classList.contains("show")) {
-            modalImg.src = "";
-          }
-        }, 200);
-      }
-
-      projectThumbs.forEach(function (thumb) {
-        thumb.addEventListener("click", function () {
-          openModal(this.src);
-        });
-      });
-
-      imageModal.addEventListener("click", function (e) {
-        if (e.target === imageModal || e.target === modalClose) {
-          closeModal();
-        }
-      });
-
-      document.addEventListener("click", function (e) {
-        if (!socialDrop.contains(e.target)) {
-          setSocialOpen(false);
-        }
-      });
-
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-          setSocialOpen(false);
-          if (imageModal.classList.contains("show")) {
-            closeModal();
-          }
-        }
-      });
-    })();
-  </script>
 </body>
 
 </html>
